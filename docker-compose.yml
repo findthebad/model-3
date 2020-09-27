@@ -1,0 +1,29 @@
+version: "3"
+services:
+  elasticsearch-model-3:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.0
+    container_name: elasticsearch-model-3
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+  kibana-model-3:
+    image: docker.elastic.co/kibana/kibana-oss:7.8.0
+    container_name: kibana-model-3
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch-model-3:9200
+    ports:
+      - 5601:5601
+  loader-model-3:
+    build: ./loader
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch-model-3:9200
+    depends_on:
+      - elasticsearch-model-3
+      - kibana-model-3
