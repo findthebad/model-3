@@ -31,3 +31,6 @@ This lab is to start getting you comfortable with Kibana for analysis and famili
 - [Sysmon Event ID 11 Fields](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90011)
 - [Kibana Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html)
 - [Kibana Discover](https://www.elastic.co/guide/en/kibana/current/discover.html)
+
+### Solution
+Available [here](https://findthebad.com/model-3/).
